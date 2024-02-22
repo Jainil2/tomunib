@@ -1,0 +1,61 @@
+{
+  "deatils": {
+    "_id": "659e9d4fc479c7ca1cb48ae7",
+    "name": "Hari",
+    "password": "$2a$10$ZXb4lvfQ8HtT/Syx.krlluIFxhzvG25aK3IIGBbEeaoIHHkWRfLRC",
+    "address": "Bhavnagar",
+    "mobile": 2145783254,
+    "email": "hari@gmail.com",
+    "appointment_id": [
+      "65a8ac38abe15157d12c26ed",
+      "65a8add5a4595129ba6dc5b8",
+      "65a8adf1a4595129ba6dc5c0",
+      "65a8b8aacc913067e1d9b87f",
+      "65a8b8bfcc913067e1d9b88c",
+      "65a8b90acc913067e1d9b895"
+    ],
+    "__v": 6
+  },
+  "list_of_appointment": [
+    {
+      "name_of_doctor": "Dr. Amit",
+      "appointment_date": "19-1-2024",
+      "appointment_time": "03:00 AM",
+      "resone": "Regular monitoring of overall health"
+    },
+    {
+      "name_of_doctor": "Dr. Salah",
+      "appointment_date": "19-1-2024",
+      "appointment_time": "10:00 AM",
+      "resone": "Regular monitoring of overall health"
+    },
+    {
+      "name_of_doctor": "Dr. Akmal",
+      "appointment_date": "19-1-2024",
+      "appointment_time": "10:00 AM",
+      "resone": "Regular monitoring of overall health"
+    },
+    {
+      "name_of_doctor": "Dr. Amit",
+      "appointment_date": "20-1-2024",
+      "appointment_time": "03:00 PM",
+      "resone": "Regular monitoring of overall health"
+    },
+    {
+      "name_of_doctor": "Dr. Amit",
+      "appointment_date": "20-1-2024",
+      "appointment_time": "10:00 AM",
+      "resone": "Regular monitoring of overall health"
+    },
+    {
+      "name_of_doctor": "Dr. Amit",
+      "appointment_date": "20-1-2024",
+      "appointment_time": "10:00 AM",
+      "resone": "Regular monitoring of overall health"
+    }
+  ],
+  "patien_record": [
+    "XRay_Dr. Rudra_16-2-2024",
+    "XRay_Dr. Amit_16-2-2024"
+  ]
+}

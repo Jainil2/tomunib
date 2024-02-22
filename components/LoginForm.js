@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/logo.png";
+import logo from "@/public/images/logo.png";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -168,7 +168,7 @@ export function LoginForm() {
               className="flex items-center shadow-xl rounded-lg w-full "
             >
               <Image
-                src="/google-logo.png"
+                src="/images/google-logo.png"
                 className="pl-3"
                 height={35}
                 width={35}

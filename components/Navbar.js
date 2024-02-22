@@ -1,15 +1,16 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from 'react'
-import logo from "@/public/logo.png";
-import { signIn, signOut, useSession, getProviders } from "next-auth/react"
+import { useState } from "react";
+import logo from "@/public/images/logo.png";
+import pro from "@/public/images/62.jpg";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [providers, setProviders] = useState(null);
-  const[isAuthanticated,setisAuthanticated] = useState(true);
+  const [isAuthanticated, setisAuthanticated] = useState(true);
   const { data: session } = useSession();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const router = useRouter();
@@ -22,9 +23,9 @@ export default function Navbar() {
   // }, []);
 
   const handleSignInClick = () => {
-    router.push('/register'); // Replace '/signin' with your actual sign-in route
-  }
-  
+    router.push("/register"); // Replace '/signin' with your actual sign-in route
+  };
+
   const toggleDropdown = () => {
     // e.preventDefault();
     console.log("Dropdown toggled");
@@ -32,13 +33,19 @@ export default function Navbar() {
   };
 
   return (
-    <div className="font-sans text-lg bg-fixed bg-to dark:bg-slate-800 dark:text-white  ">
+    <div className="font-sans text-lg bg-fixed bg-to dark:bg-slate-800 dark:text-white bg-gradient-to-l from-transparent via-slate-200 to-transparent">
       <nav className="flex items-center justify-between">
         <Link
           href="/"
           className="flex items-center ml-auto mr-auto rounded-full overflow-hidden mt-2 mb-2"
         >
-          <Image src={logo} width={100} height={100} alt="Company Logo" priority />
+          <Image
+            src={logo}
+            width={50}
+            height={50}
+            alt="Company Logo"
+            priority
+          />
         </Link>
         <ul className="hidden md:flex space-x-6 tracking-wide transition duration-300 ease-in-out">
           <li>
@@ -66,16 +73,18 @@ export default function Navbar() {
           {session?.user ? (
             <button
               onClick={() => toggleDropdown()}
-              // onClick={alert("hi")}  
+              // onClick={alert("hi")}
               className="rounded-full overflow-hidden"
             >
               {/* <Link href="/profile" className="flex items-center ml-auto mr-auto rounded-full overflow-hidden mt-2 mb-2"> */}
-              <Image src={logo} width={100} height={100} alt="User Profile" />
+              <Image src={pro} width={50} height={50} alt="User Profile" />
               {/* </Link> */}
             </button>
           ) : (
             <div className="flex items-center ml-auto mr-auto">
-              <button onClick={()=>handleSignInClick()} className="mr-1">Login /</button>
+              <button onClick={() => handleSignInClick()} className="mr-1">
+                Login /
+              </button>
               <button className="ml-1">Sign Up</button>
             </div>
           )}
@@ -85,13 +94,14 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/profile"
-                    className="flex px-2 py-1 hover:bg-gray-200 w-24 rounded-md justify-center" 
+                    className="flex px-2 py-1 hover:bg-gray-200 w-24 rounded-md justify-center"
                   >
                     Profile
                   </Link>
                 </li>
                 <li>
-                  <button onClick={() => signOut()}
+                  <button
+                    onClick={() => signOut()}
                     className="flex px-2 py-1 hover:bg-gray-200 w-24 rounded-md justify-center text-red-600"
                   >
                     Sign Out

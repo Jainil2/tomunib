@@ -85,7 +85,7 @@ const handler = NextAuth({
   // }),
   callbacks :{
     async signIn({user, account, profile}) {
-      console.log(profile);
+      // console.log(profile);
       if(account.provider === "google") {
         const {name , email} = user;
         // console.log(name);
@@ -93,6 +93,9 @@ const handler = NextAuth({
         try {
             await connectMongoDB();
             const userExists = await User.findOne({email});
+            if(userExists) {
+              return user;
+            }
             if(!userExists) {
               console.log("newuser");
               const res = await fetch("http://localhost:3000/api/user", {

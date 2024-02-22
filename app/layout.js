@@ -17,6 +17,9 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <Navbar />
           {children}
+          <footer class="bg-gray-800 text-white p-4 text-center mt-10">
+            <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+          </footer>
         </AuthProvider>
       </body>
     </html>
