@@ -69,19 +69,19 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-        <div className="relative ml-auto mr-auto">
+        <div className="rel ative ml-auto mr-auto">
           {session?.user ? (
             <button
               onClick={() => toggleDropdown()}
               // onClick={alert("hi")}
-              className="rounded-full overflow-hidden"
+              className=" rounded-full overflow-hidden"
             >
               {/* <Link href="/profile" className="flex items-center ml-auto mr-auto rounded-full overflow-hidden mt-2 mb-2"> */}
               <Image src={pro} width={50} height={50} alt="User Profile" />
               {/* </Link> */}
             </button>
           ) : (
-            <div className="flex items-center ml-auto mr-auto">
+            <div className="flex items-center">
               <button onClick={() => handleSignInClick()} className="mr-1">
                 Login /
               </button>
@@ -89,15 +89,17 @@ export default function Navbar() {
             </div>
           )}
           {dropdownOpen && (
-            <div className="absolute pt-1 bg-white rounded-md shadow-md">
+            <div className="absolute right-40 mt-1 bg-white rounded-md shadow-md">
               <ul className="py-2 px-4">
                 <li>
-                  <Link
-                    href="/profile"
-                    className="flex px-2 py-1 hover:bg-gray-200 w-24 rounded-md justify-center"
-                  >
-                    Profile
-                  </Link>
+                  <button onClick={() => toggleDropdown()}>
+                    <Link
+                      href="/profile"
+                      className="flex px-2 py-1 hover:bg-gray-200 w-24 rounded-md justify-center"
+                    >
+                      Profile
+                    </Link>
+                  </button>
                 </li>
                 <li>
                   <button

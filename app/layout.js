@@ -13,11 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className} style={{ maxHeight: "100vh" }}>
         <AuthProvider>
           <Navbar />
           {children}
-          <footer class="bg-gray-800 text-white p-4 text-center mt-10">
+          <footer className="mt-auto bg-gray-800 text-white p-4 text-center">
             <p>&copy; 2024 Your Website Name. All rights reserved.</p>
           </footer>
         </AuthProvider>
