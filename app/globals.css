@@ -19,3 +19,78 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+@layer base {
+  section {
+    @apply py-[75px];
+  }
+}
+@layer base {
+  body {
+    background-color: #ffffff;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-full w-[1440px] px-5 mx-auto;
+  }
+
+  .btn {
+    @apply bg-primaryColor py-[15px] px-[35px] rounded-[50px] text-white font-[600] mt-[38px];
+  }
+
+  .heading {
+    @apply text-[44px] leading-[54px] font-[700] text-headingColor;
+  }
+
+  .text_para {
+    @apply text-[18px] leading-[30px] font-[400] text-textColor mt-[18px];
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    @apply w-full;
+  }
+  section {
+    @apply pt-[35px];
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .heading {
+    @apply text-[26px] leading-[36px];
+  }
+  .text_para {
+    @apply text-[16px] leading-7 mt-3;
+  }
+}
+
+.text_para {
+  @apply text-[18px] leading-[30px] font-[400] text-textColor mt-[18px];
+}
+/* .hero_section {
+  @apply bg-[url()] bg-no-repeat bg-center bg-cover;
+} */
+
+.blueLink {
+  color: blue;
+  text-align: center;
+  text-decoration: none;
+}
+
+.slick-slide {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.slick-dots li button:before {
+  background-color: #040500;
+  height: 10px;
+  width: 10px;
+  text-indent: -9999px;
+  border-radius: 100%;
+  top: -250px;
+  bottom: 0px;
+}

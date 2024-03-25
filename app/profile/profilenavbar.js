@@ -22,7 +22,7 @@ export default function Profilenavbar(){
             </Link>
           </li>
           <li>
-            <Link href="/profile/pdata" className="hover:font-semibold">
+            <Link href="/profile/healthdata" className="hover:font-semibold">
               Health Record
             </Link>
           </li>

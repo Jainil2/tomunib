@@ -5,7 +5,14 @@ import logo from "@/public/images/logo.png";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
+import { Button, ButtonGroup } from "@nextui-org/react";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownSection,
+  DropdownItem,
+} from "@nextui-org/react";
 export function LoginForm() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
@@ -68,7 +75,7 @@ export function LoginForm() {
           redirect: false,
         });
         if (res.error) {
-          seterror("Invalid Credentials"  );
+          seterror("Invalid Credentials");
           return;
         }
         // form.reset();
@@ -80,7 +87,7 @@ export function LoginForm() {
   };
 
   return (
-    <div>
+    <div className="p-5">
       <form
         className="w-96 mx-auto pl-8 pr-8 pb-8 rounded-lg shadow-md"
         onSubmit={handlesubmit}
@@ -143,38 +150,57 @@ export function LoginForm() {
           ></input>
           {/* {errorPassword && <p className="error">{errorPassword}</p>} */}
         </div>
+        <button onClick={() => handleNewUser()}>
+          <p className="text-sm mb-2">
+            {newUser ? "Already have an account" : "New-User? Click here"}
+          </p>
+        </button>
+
         {error && (
           <p className="bg-red-500 text-white antialiased font-sans text-base font-medium w-full rounded-md py-1 px-3 mt-3">
             {error}
           </p>
         )}
-        <div className="flex mb-3">
-          <button
-            type="submit"
-            className="w-32 bg-green-500 text-white px-4 py-2 rounded font-bold hover:bg-green-700 mt-4 mr-4"
-          >
-            {newUser ? "Sign Up" : "Sign In"}
-          </button>
-          <button onClick={() => handleNewUser()}>
-            <p className="text-sm mt-6">
-              {newUser ? "Already have an account" : "New-User? Click here"}
-            </p>
-          </button>
-        </div>
-        {!newUser && (
+        <div className="flex mb-5 justify-between">
           <div>
             <button
+              type="submit"
+              className="w-32 h-10 grid items-center bg-blue-500 text-white rounded-lg text-md hover:bg-blue-400 mt-4"
+            >
+              {newUser ? "Sign Up" : "Sign In"}
+            </button>
+          </div>
+          <div>
+            <Dropdown>
+              <DropdownTrigger>
+                <button className="w-32 h-10 grid items-center bg-blue-500 text-white rounded-lg text-md hover:bg-blue-400 mt-4">
+                  Select User
+                </button>
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Static Actions">
+                <DropdownItem key="new">User</DropdownItem>
+                <DropdownItem key="copy">Doctor</DropdownItem>
+                <DropdownItem key="edit">Admin</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+        </div>
+        {!newUser && (
+          <div className="">
+            <button
               onClick={() => signIn("google")}
-              className="flex items-center shadow-xl rounded-lg w-full "
+              className="flex items-center rounded-lg w-full h-10 mt-2"
             >
               <Image
                 src="/images/google-logo.png"
-                className="pl-3"
+                className="p-1 h-10 w-12 mr-2 bg-white"
                 height={35}
                 width={35}
                 alt="google logo"
               />
-              <span className="w-full py-3">Sign in with Google</span>
+              <span className="w-full bg-blue-500 h-10 rounded-r-lg text-md text-white grid items-center">
+                Sign in with Google
+              </span>
             </button>
           </div>
         )}

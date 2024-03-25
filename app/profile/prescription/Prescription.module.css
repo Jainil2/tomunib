@@ -1,0 +1,73 @@
+/* styles/Prescription.module.css
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .header {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .details {
+    margin-bottom: 20px;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  .sectionHeader {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+   */
+/* styles/Prescription.module.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.details {
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.sectionHeader {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.medicationTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.medicationTable th,
+.medicationTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.medicationTable th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.medicationTable tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

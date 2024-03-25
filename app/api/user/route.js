@@ -4,14 +4,10 @@ import User from '@/models/user'
 
 export async function POST(req) {
   try {
-    // console.log("started api")
     const { name, email } = await req.json();
     await connectMongoDB();
     try {
      const res =  await User.create({name, email});
-    //  if(res.ok) {
-    //   console.log("ok");
-    //  } 
     } catch (error) {
       console.log(error);
     }

@@ -2,6 +2,7 @@ import React from "react";
 import { Avatar } from "@nextui-org/react";
 import Appointmentdata from "@/public/data/profile.json";
 import { FaArrowAltCircleRight } from "react-icons/fa";
+import Link from "next/link";
 
 const Appoinment = () => {
   return (
@@ -38,7 +39,9 @@ const Appoinment = () => {
               <td className="p-3">{rowData.appointment_time}</td>
               <td className="p-3">{rowData.resone}</td>
               <td className="flex pt-3 justify-center items-center">
-                <FaArrowAltCircleRight />
+                <Link href="/profile/prescription">
+                  <FaArrowAltCircleRight />
+                </Link>
               </td>
             </tr>
           ))}
