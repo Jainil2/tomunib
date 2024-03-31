@@ -25,7 +25,7 @@ const FindDoctor = () => {
   //   const serviceParam = searchParams.get("sevicename");
   //   const router = useRouter();
   //   const serviceParam = location.query.sevicename;
-  const serviceParam = location.query.sevicename?.toLowerCase(); // Check for undefined and lowercase
+  const serviceParam = location.query?.sevicename?.toLowerCase() || ""; // Check for undefined and lowercase, default to empty string
   // Assuming 'sevicename' is the query param name
 
   // Assuming the query param is 'sevicename'

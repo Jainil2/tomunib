@@ -41,19 +41,15 @@ const rows = [
 
 const columns = [
   {
-    key: "NO.",
+    key: "key",
     label: "NO.",
   },
   {
-    key: "Doctor",
+    key: "name",
     label: "Doctor",
   },
   {
-    key: "Date",
-    label: "Date",
-  },
-  {
-    key: "Report",
+    key: "status",
     label: "Report",
   },
 ];
@@ -69,7 +65,7 @@ import {
 } from "react-icons/hi";
 
 const HealthData = () => {
-  const [records, setrecords] = useState(0);
+  const [records, setrecords] = useState([]);
 
   return (
     <div className="grid grid-cols-4 min-h-screen">

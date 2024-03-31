@@ -36,6 +36,7 @@
 import Image from "next/image";
 import pro from "@/public/images/62.jpg";
 import { Card, CardHeader, CardBody } from "@nextui-org/react";
+import VaccineCard from "@/app/profile/timecard";
 
 import {
   Table,
@@ -47,6 +48,57 @@ import {
 } from "@nextui-org/react";
 
 export default function Profile() {
+  const vaccineInformation = [
+    {
+      name: "Pfizer-BioNTech",
+      manufacturer: "Pfizer, BioNTech",
+      doses: 2,
+      efficacy: "95%",
+      type: "mRNA",
+      country: "United States, Germany",
+      approvedBy: "FDA, EMA",
+      status: {
+        dosesTaken: 1,
+        dosesRemaining: 1,
+        lastDoseDate: "2023-01-15",
+        nextDoseDate: "2023-02-15",
+        administeringDoctor: "Dr. Smith",
+      },
+    },
+    {
+      name: "Moderna",
+      manufacturer: "Moderna, Inc.",
+      doses: 2,
+      efficacy: "94.1%",
+      type: "mRNA",
+      country: "United States",
+      approvedBy: "FDA",
+      status: {
+        dosesTaken: 2,
+        dosesRemaining: 0,
+        lastDoseDate: "2023-03-10",
+        nextDoseDate: "N/A",
+        administeringDoctor: "Dr. Johnson",
+      },
+    },
+    {
+      name: "Johnson & Johnson",
+      manufacturer: "Janssen Pharmaceuticals, Johnson & Johnson",
+      doses: 1,
+      efficacy: "66.9%",
+      type: "Viral vector",
+      country: "United States, European Union",
+      approvedBy: "FDA, EMA",
+      status: {
+        dosesTaken: 1,
+        dosesRemaining: 0,
+        lastDoseDate: "2023-02-05",
+        nextDoseDate: "N/A",
+        administeringDoctor: "Dr. Patel",
+      },
+    },
+    // Add more vaccine objects as needed
+  ];
   return (
     <div className="font-sans antialiased">
       <div className="grid grid-cols-4 h-40 bg-gradient-to-b from-slate-200 to-white pt-7">
@@ -148,97 +200,15 @@ export default function Profile() {
           </div>
         </div>
         <div className="col-span-2 ">
-          <div class="snap-proximity snap-x ...">
-            <div class="snap-center ...">
-              <Card className="py-4">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">Daily Mix</p>
-                  <small className="text-default-500">12 Tracks</small>
-                  <h4 className="font-bold text-large">Frontend Radio</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                  <Image
-                    alt="Card background"
-                    className="object-cover rounded-xl"
-                    src="/images/hero-card-complete.jpeg"
-                    width={270}
-                    height={50}
-                  />
-                </CardBody>
-              </Card>
-            </div>
-            <div class="snap-center ...">
-              <Card className="py-4">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">Daily Mix</p>
-                  <small className="text-default-500">12 Tracks</small>
-                  <h4 className="font-bold text-large">Frontend Radio</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                  <Image
-                    alt="Card background"
-                    className="object-cover rounded-xl"
-                    src="/images/hero-card-complete.jpeg"
-                    width={270}
-                    height={50}
-                  />
-                </CardBody>
-              </Card>
-            </div>
-            <div class="snap-center ...">
-              <Card className="py-4">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">Daily Mix</p>
-                  <small className="text-default-500">12 Tracks</small>
-                  <h4 className="font-bold text-large">Frontend Radio</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                  <Image
-                    alt="Card background"
-                    className="object-cover rounded-xl"
-                    src="/images/hero-card-complete.jpeg"
-                    width={270}
-                    height={50}
-                  />
-                </CardBody>
-              </Card>
-            </div>
-            <div class="snap-center ...">
-              <Card className="py-4">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">Daily Mix</p>
-                  <small className="text-default-500">12 Tracks</small>
-                  <h4 className="font-bold text-large">Frontend Radio</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                  <Image
-                    alt="Card background"
-                    className="object-cover rounded-xl"
-                    src="/images/hero-card-complete.jpeg"
-                    width={270}
-                    height={50}
-                  />
-                </CardBody>
-              </Card>
-            </div>
-            <div class="snap-center ...">
-              <Card className="py-4">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <p className="text-tiny uppercase font-bold">Daily Mix</p>
-                  <small className="text-default-500">12 Tracks</small>
-                  <h4 className="font-bold text-large">Frontend Radio</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2">
-                  <Image
-                    alt="Card background"
-                    className="object-cover rounded-xl"
-                    src="/images/hero-card-complete.jpeg"
-                    width={270}
-                    height={50}
-                  />
-                </CardBody>
-              </Card>
-            </div>
+          <div className="flex justify-center mb-4 ">
+            <h1 className="text-xl">Vaccine records</h1>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {vaccineInformation.map((info, index) => (
+              <div key={index} className="col-span-1">
+                <VaccineCard info={info} />
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -54,12 +54,12 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/doctors" className="hover:font-semibold">
+            <Link href="/finddoctor" className="hover:font-semibold">
               Find Doctor
             </Link>
           </li>
           <li>
-            <Link href="/services" className="hover:font-semibold">
+            <Link href="/service" className="hover:font-semibold">
               Services
             </Link>
           </li>

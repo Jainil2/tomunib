@@ -17,7 +17,12 @@ const DoctorProfile = () => {
           </h1>
         </div>
         <div className="col-span-3 min-h-full ">
-          <h1>DoctorData</h1>
+          <h3 className="text-lg text-gray-700 mb-4">{specialization}</h3>
+          <div className="doctor-details space-y-2">
+            <p className="text-gray-600">Experience: {experience}</p>
+            <p className="text-gray-600">Education: {education}</p>
+            <p className="text-gray-600 italic">{bio}</p>
+          </div>
         </div>
       </div>
     </>
