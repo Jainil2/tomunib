@@ -26,6 +26,11 @@ export default function Profilenavbar(){
               Health Record
             </Link>
           </li>
+          <li>
+            <Link href="/profile/addrecord" className="hover:font-semibold">
+              Add Record
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>

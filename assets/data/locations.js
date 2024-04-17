@@ -1,6 +1,6 @@
 export const locations = [
     {
-      name:"Ahemdabad",
+      name:"Ahmedabad",
     },
     {
         name:"Faridabad",

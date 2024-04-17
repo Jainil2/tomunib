@@ -19,11 +19,7 @@ const initialFormState = {
       note: "",
     },
   ],
-  report: [
-    {
-      name: "",
-    },
-  ],
+  report: [],
   followUpDate: "",
 };
 
@@ -32,6 +28,7 @@ const Prescription = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("abc");
     console.log(formData);
     setFormData(initialFormState);
   };
@@ -47,9 +44,14 @@ const Prescription = () => {
       };
       setFormData({ ...formData, medications: updatedMedications });
     } else if (name.startsWith("report")) {
-      const updatedReport = [...formData.report];
-      updatedReport[0] = { ...updatedReport[0], name: value };
-      setFormData({ ...formData, report: updatedReport });
+      // setFormData({ ...formData, report: [{ name: value }] });
+      setFormData({
+        ...formData,
+        report: { ...formData.report, [value]: value },
+      });
+      // const updatedReport = [...formData.report];
+      // updatedReport[0] = { ...updatedReport[0], name: value };
+      // setFormData({ ...formData, report: updatedReport });
     } else {
       setFormData({ ...formData, [name]: value });
     }
@@ -187,11 +189,18 @@ const Prescription = () => {
 
         <label className="mb-4 grid grid-cols-2">
           <div className="col-span-1 ml-20">Report Name:</div>
-          <input
+          {/* <input
             type="text"
             name="report"
             value={formData.report[0].name}
             onChange={(e) => handleChange(e)}
+            className="p-1 border-1 border-solid rounded-md"
+          /> */}
+          <input
+            type="text"
+            name="report"
+            value={formData.report.length > 0 ? formData.report[0].name : ""}
+            onChange={handleChange}
             className="p-1 border-1 border-solid rounded-md"
           />
         </label>

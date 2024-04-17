@@ -4,9 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 import logo from "@/public/images/logo.png";
 import pro from "@/public/images/62.jpg";
-import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { signIn, signOut, getProviders } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function Navbar() {
   const [providers, setProviders] = useState(null);
@@ -29,7 +30,11 @@ export default function Navbar() {
   const toggleDropdown = () => {
     // e.preventDefault();
     console.log("Dropdown toggled");
-    setDropdownOpen(!dropdownOpen);
+    if (session?.user?.email == "chauhanjainil305@gmail.com") {
+      setDropdownOpen(false);
+    } else {
+      setDropdownOpen(!dropdownOpen);
+    }
   };
 
   return (
@@ -56,6 +61,11 @@ export default function Navbar() {
           <li>
             <Link href="/finddoctor" className="hover:font-semibold">
               Find Doctor
+            </Link>
+          </li>
+          <li>
+            <Link href="/findlocation" className="hover:font-semibold">
+              Find Location
             </Link>
           </li>
           <li>

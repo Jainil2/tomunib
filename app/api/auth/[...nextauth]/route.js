@@ -66,6 +66,7 @@ const handler = NextAuth({
       }
       return user;
     },
+    
     // async session({ session, user }) {
     //   if (session.provider === 'credentials') {
     //     user.image = await getUserImage(user.email);

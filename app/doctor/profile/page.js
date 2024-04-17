@@ -1,9 +1,21 @@
 import React from "react";
 import { Image } from "@nextui-org/react";
+import DoctorNavbar from "../DoctorNavbar";
+import Link from "next/link";
+
+const dummyData = {
+  specialization: "Cardiologist",
+  experience: "5 years",
+  education: "MBBS, MD (Cardiology)",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ultricies ante. Nulla facilisi. Sed tristique vehicula ex, sed placerat arcu faucibus sed. Sed hendrerit, felis id blandit ultricies, ipsum velit lobortis mi, vitae interdum dolor nibh eu eros.",
+};
 
 const DoctorProfile = () => {
+  const { specialization, experience, education, bio } = dummyData;
+
   return (
-    <>
+    <div className="min-h-screen pb-100">
+      {/* <DoctorNavbar /> */}
       <div className="grid grid-cols-4  gap-4 p-5 mt-5">
         <div className="grid col-span-1 min-h-full place-items-center gap-4">
           <Image
@@ -25,7 +37,7 @@ const DoctorProfile = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

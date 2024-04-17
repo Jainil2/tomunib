@@ -1,61 +1,64 @@
 {
   "deatils": {
-    "_id": "659e9d4fc479c7ca1cb48ae7",
-    "name": "Hari",
-    "password": "$2a$10$ZXb4lvfQ8HtT/Syx.krlluIFxhzvG25aK3IIGBbEeaoIHHkWRfLRC",
-    "address": "Bhavnagar",
-    "mobile": 2145783254,
-    "email": "hari@gmail.com",
+    "_id": "65dd87349372c974b9f815a9",
+    "patient_id": "PAT1",
+    "name": "Munib",
+    "password": "$2a$10$FH8UTnxqY1yUmBfXYSSVTuBf7QnYMVEkLNkAW18nbz8oC11z1fgje",
+    "address": "Ahmedabad",
+    "mobile": 4646486768737,
+    "email": "munib1@gmail.com",
     "appointment_id": [
-      "65a8ac38abe15157d12c26ed",
-      "65a8add5a4595129ba6dc5b8",
-      "65a8adf1a4595129ba6dc5c0",
-      "65a8b8aacc913067e1d9b87f",
-      "65a8b8bfcc913067e1d9b88c",
-      "65a8b90acc913067e1d9b895"
+      "65e93fe297b7ed249ad12118"
     ],
-    "__v": 6
+    "__v": 10
   },
   "list_of_appointment": [
     {
       "name_of_doctor": "Dr. Amit",
-      "appointment_date": "19-1-2024",
-      "appointment_time": "03:00 AM",
-      "resone": "Regular monitoring of overall health"
-    },
-    {
-      "name_of_doctor": "Dr. Salah",
-      "appointment_date": "19-1-2024",
-      "appointment_time": "10:00 AM",
-      "resone": "Regular monitoring of overall health"
-    },
-    {
-      "name_of_doctor": "Dr. Akmal",
-      "appointment_date": "19-1-2024",
-      "appointment_time": "10:00 AM",
-      "resone": "Regular monitoring of overall health"
-    },
-    {
-      "name_of_doctor": "Dr. Amit",
       "appointment_date": "20-1-2024",
       "appointment_time": "03:00 PM",
-      "resone": "Regular monitoring of overall health"
-    },
-    {
-      "name_of_doctor": "Dr. Amit",
-      "appointment_date": "20-1-2024",
-      "appointment_time": "10:00 AM",
-      "resone": "Regular monitoring of overall health"
-    },
-    {
-      "name_of_doctor": "Dr. Amit",
-      "appointment_date": "20-1-2024",
-      "appointment_time": "10:00 AM",
-      "resone": "Regular monitoring of overall health"
+      "patien_record": [
+        "XRay_Dr. Amit_11-3-2024",
+        "XRay_Dr. Amit_11-3-2024"
+      ]
     }
   ],
-  "patien_record": [
-    "XRay_Dr. Rudra_16-2-2024",
-    "XRay_Dr. Amit_16-2-2024"
+  "pat_priscription": [
+    {
+      "_id": "65e94c5a6f5188c4c631da5d",
+      "patientID": "65dd87349372c974b9f815a9",
+      "Date": "2024-01-20T00:00:00.000Z",
+      "Patient_Name": "Munib",
+      "Symptoms": [
+        "Cold",
+        "Cough"
+      ],
+      "Diagnosis": [
+        "Viral Infection"
+      ],
+      "medication": [
+        {
+          "name": "Levocetirizine",
+          "dosage": "10mg",
+          "no_dose": "1-0-0",
+          "no_of_Days": 3,
+          "notes": "Avoid alcohol while taking these medications.",
+          "_id": "65e94c5a6f5188c4c631da5e"
+        },
+        {
+          "name": "Amoxicillin",
+          "dosage": "500mg",
+          "instructions": "Take with food",
+          "no_dose": "1-0-0",
+          "no_of_Days": 7,
+          "_id": "65e94c5a6f5188c4c631da5f"
+        }
+      ],
+      "Report": [
+        "Blood Repot"
+      ],
+      "Follow_up_Date": "2024-01-28T00:00:00.000Z",
+      "__v": 0
+    }
   ]
 }

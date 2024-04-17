@@ -37,6 +37,9 @@ import Image from "next/image";
 import pro from "@/public/images/62.jpg";
 import { Card, CardHeader, CardBody } from "@nextui-org/react";
 import VaccineCard from "@/app/profile/timecard";
+import { useEffect } from "react";
+// import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
 
 import {
   Table,
@@ -48,6 +51,8 @@ import {
 } from "@nextui-org/react";
 
 export default function Profile() {
+  // const router = useRouter();
+
   const vaccineInformation = [
     {
       name: "Pfizer-BioNTech",
@@ -61,7 +66,7 @@ export default function Profile() {
         dosesTaken: 1,
         dosesRemaining: 1,
         lastDoseDate: "2023-01-15",
-        nextDoseDate: "2023-02-15",
+        nextDoseDate: "2024-04-01",
         administeringDoctor: "Dr. Smith",
       },
     },
@@ -99,6 +104,67 @@ export default function Profile() {
     },
     // Add more vaccine objects as needed
   ];
+
+  useEffect(() => {
+    const getNextDoseDate = () => {
+      const currentDate = new Date().toISOString().split("T")[0];
+      const nextDoseInfo = vaccineInformation.find(
+        (info) => info.status.nextDoseDate === currentDate
+      );
+      return nextDoseInfo ? nextDoseInfo.status.nextDoseDate : null;
+    };
+
+    const requestNotificationPermission = async () => {
+      if ("Notification" in window) {
+        const permission = await Notification.requestPermission();
+        if (permission === "granted") {
+          const nextDoseDate = getNextDoseDate();
+          if (nextDoseDate) {
+            toast.success("It's time for your next vaccine dose!", {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+            });
+          }
+        }
+      }
+    };
+
+    requestNotificationPermission();
+  }, []);
+
+  // useEffect(() => {
+  //   const showNotification = () => {
+  //     alert("It's time for your next vaccine dose!");
+  //     new Notification("Next Vaccine Dose", {
+  //       body: "It's time for your next vaccine dose!",
+  //     });
+  //   };
+
+  //   const getNextDoseDate = () => {
+  //     const currentDate = new Date().toISOString().split("T")[0];
+  //     const nextDoseInfo = vaccineInformation.find(
+  //       (info) => info.status.nextDoseDate === currentDate
+  //     );
+  //     return nextDoseInfo ? nextDoseInfo.status.nextDoseDate : null;
+  //   };
+
+  //   const requestNotificationPermission = async () => {
+  //     if ("Notification" in window) {
+  //       const permission = await Notification.requestPermission();
+  //       if (permission === "granted") {
+  //         const nextDoseDate = getNextDoseDate();
+  //         if (nextDoseDate) {
+  //           showNotification();
+  //         }
+  //       }
+  //     }
+  //   };
+
+  //   requestNotificationPermission();
+  // }, []);
+
   return (
     <div className="font-sans antialiased">
       <div className="grid grid-cols-4 h-40 bg-gradient-to-b from-slate-200 to-white pt-7">
@@ -129,6 +195,11 @@ export default function Profile() {
             <div className="col-span-1">
               <h3>Emergency Number : 0123456789</h3>
             </div>
+            {/* <ToastContainer
+              position="bottom-right"
+              autoClose={3000}
+              hideProgressBar
+            /> */}
           </div>
         </div>
       </div>

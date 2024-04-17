@@ -27,6 +27,9 @@ const UserSchema = new Schema(
       enum : ['admin', 'doctor', 'patient'],
       required : true
     },
+    apid:{
+      type:String,
+    },
   },
   { timestamps: true }
 );

@@ -239,12 +239,27 @@ import { useRouter } from "next/navigation";
 import About from "../components/About";
 import Bgvdo from "../components/Bgvdo";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 const Home = () => {
   const router = useRouter();
-//   const handlenavigate = (pro) => {
-//     router.push({pro});
-// };
+
+  const { data: session } = useSession();
+  //   const handlenavigate = (pro) => {
+  //     router.push({pro});
+  // };
+  React.useEffect(() => {
+    if (session?.user?.email === "chauhanjainil305@gmail.com") {
+      router.push("/doctor/profile");
+    }
+  }, [session]);
+
+  React.useEffect(() => {
+    if (session?.user?.email === "chauhanjainil305@gmail.com") {
+      router.push("/admin/adddoctor");
+    }
+  }, [session]);
+
   return (
     <>
       {/* hero section */}

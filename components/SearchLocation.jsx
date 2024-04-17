@@ -1,7 +1,6 @@
 import React from "react";
 import { locations } from "../../assets/data/locations";
 import Footer from "../Footer/footer";
-
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 const SearchLocation = () => {

@@ -1,13 +1,19 @@
 "use client";
 import React, { useState } from "react";
-import SearchDoctor from "../../components/SearchDoctor";
+import SearchDoctor from "../../../components/SearchDoctor";
 // import { useLocation, useNavigate } from "react-router-dom";
-import Footer from "../../components/Footer";
-import { doctordata } from "../../assets/data/doctordata";
+import Footer from "../../../components/Footer";
+import { doctordata } from "../../../assets/data/doctordata";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const FindDoctor = ({ params }) => {
-  // var filteredResults = null;
+  // const [isClient, setIsClient] = useState(false);
+
+  // useEffect(() => {
+  //   console.log(doctordata);
+  // }, []);
+  var filteredResults = null;
   // const location = useLocation();
   // console.log(location.state);
   // if (location.state != undefined) {
@@ -18,38 +24,39 @@ const FindDoctor = ({ params }) => {
   //   );
   // }
 
-  const router  = useRouter(); // Or useRouter() if using App Router
+  const router = useRouter(); // Or useRouter() if using App Router
 
   // Access query parameters in a structured way
-  // const searchParams = new URLSearchParams(location.search);
+  //   const searchParams = new URLSearchParams(location.search);
   //   const serviceParam = searchParams.get("sevicename");
   //   const router = useRouter();
   //   const serviceParam = location.query.sevicename;
-  // const serviceParam = params.location.toLowerCase() || null; // Check for undefined and lowercase, default to empty string
+  //   const serviceParam = location.query?.sevicename?.toLowerCase() || ""; // Check for undefined and lowercase, default to empty string
   // Assuming 'sevicename' is the query param name
-
+  const serviceParam = params.location;
   // Assuming the query param is 'sevicename'
-  // console.log(searchParams);
-  // console.log(serviceParam);
+  //   console.log(searchParams);
+  console.log(serviceParam);
 
-  // if (serviceParam) {
-  //   filteredResults = doctordata.filter((category) =>
-  //     category.department.toLowerCase().includes(serviceParam.toLowerCase())
-  //   );
-  // }
+  if (serviceParam) {
+    filteredResults = doctordata.filter((category) =>
+      category.city.toLowerCase().includes(serviceParam.toLowerCase())
+    );
+  }
+  console.log(filteredResults);
 
   return (
-    <>
-      <SearchDoctor />
-      {
+    <div>
+      {serviceParam && (
         <div className="width-full">
+          {/* <SearchDoctor /> */}
           <div>
             <h1 className="text-4xl antialiased	text-center mb-3  text-black tracking-wide font-sarif decoration-green-200	underline">
               DOCTORS
             </h1>
             <section>
               <div className="grid 2xl:grid-cols-4 grid-cols-3 w-full gap-y-10">
-                {doctordata.map((item) => (
+                {filteredResults.map((item) => (
                   <div key={item.id} className="container">
                     <div className="max-w-sm mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
                       <div className="border-b px-12 pb-6 space-y-4">
@@ -93,9 +100,9 @@ const FindDoctor = ({ params }) => {
                               className="h-5 w-5 text-blue-500"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
-                              strokeWidth ="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                             >
                               {" "}
                               <line x1="12" y1="5" x2="12" y2="19" />{" "}
@@ -144,9 +151,10 @@ const FindDoctor = ({ params }) => {
             <Footer />
           </div>
         </div>
-      }
-      {/* {!serviceParam && (
+      )}
+      {!serviceParam && (
         <div className="width-full">
+          <SearchDoctor />
           <div>
             <h1 className="text-4xl antialiased	text-center mb-3  text-black tracking-wide font-sarif decoration-green-200	underline">
               DOCTORS
@@ -196,9 +204,9 @@ const FindDoctor = ({ params }) => {
                               className="h-5 w-5 text-blue-500"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                             >
                               {" "}
                               <line x1="12" y1="5" x2="12" y2="19" />{" "}
@@ -231,7 +239,7 @@ const FindDoctor = ({ params }) => {
 
                           <button
                             className="flex-1 rounded-full bg-blue-600 dark:bg-blue-800 text-white dark:text-white antialiased font-bold hover:bg-blue-800 dark:hover:bg-blue-900 px-4 py-2"
-                            onClick={() => location.push("/bookaptmnt")} // Attach the handleClick function to the onClick event
+                            onClick={() => router.push("/bookaptmnt")} // Attach the handleClick function to the onClick event
                           >
                             Book Appointment
                           </button>
@@ -247,8 +255,8 @@ const FindDoctor = ({ params }) => {
             <Footer />
           </div>
         </div>
-      )} */}
-    </>
+      )}
+    </div>
   );
 };
 
